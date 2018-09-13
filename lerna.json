@@ -1,0 +1,8 @@
+{
+    "packages": [
+      "vladnet/common/*",
+      "vladnet/IPD/*"
+    ],
+    "version": "1.0.0-a",
+    "npmClient": "yarn"
+  }

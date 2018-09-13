@@ -1,0 +1,27 @@
+{
+  "name": "@vladnet/cli-infrastructure",
+  "version": "1.0.0-a",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "compile": "webpack",
+    "compile:watch": "webpack --watch",
+    "start": "nodemon  --quiet --watch ./dist dist/index.js",
+    "start:compile": "yarn run compile && yarn run start",
+    "start:compile:watch": "concurrently -n \"compile,run\" \"yarn run compile:watch\" \"yarn start\""
+  },
+  "devDependencies": {
+    "@types/argv": "^0.0.4",
+    "@types/node": "^10.9.4",
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4",
+    "ts-loader": "^5.1.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.18.1",
+    "webpack-command": "^0.4.1"
+  },
+  "dependencies": {
+    "argv": "^0.0.2"
+  }
+}

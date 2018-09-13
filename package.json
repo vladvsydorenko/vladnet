@@ -1,0 +1,10 @@
+{
+  "name": "@vladnet/vladnet",
+  "version": "1.0.0-a",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.3.2"
+  }
+}
