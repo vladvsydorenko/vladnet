@@ -1,8 +1,14 @@
 const path = require("path");
 
 module.exports = {
-    entry: "./src/index.ts",
+    entry: {
+        index: "./src",
+        actions: "./src/actions",
+        bin_vladnet: "./src/bin/vladnet"
+    },
     mode: "development",
+    devtool: "source-map",
+    target: "node",
     module: {
         rules: [
             {
@@ -17,7 +23,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "index.js",
+        filename: "[name].js",
         libraryTarget: "umd",
         globalObject: "this",
     },

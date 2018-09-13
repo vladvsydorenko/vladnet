@@ -7,9 +7,12 @@
   "scripts": {
     "compile": "webpack",
     "compile:watch": "webpack --watch",
-    "start": "nodemon  --quiet --watch ./dist dist/index.js",
+    "start": "nodemon  --quiet --watch ./dist dist/bin_vladnet.js init --name=\"John and Mary\"",
     "start:compile": "yarn run compile && yarn run start",
     "start:compile:watch": "concurrently -n \"compile,run\" \"yarn run compile:watch\" \"yarn start\""
+  },
+  "bin": {
+    "vladnet": "./dist/vladnet.js"
   },
   "devDependencies": {
     "@types/argv": "^0.0.4",

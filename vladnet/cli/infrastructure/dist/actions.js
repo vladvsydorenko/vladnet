@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/index.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -140,43 +140,8 @@ exports.default = {
 };
 
 
-/***/ }),
-
-/***/ "./src/index.ts":
-/*!**********************!*\
-  !*** ./src/index.ts ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-// import { CliHelpers } from "./helpers/CliHelpers";
-Object.defineProperty(exports, "__esModule", { value: true });
-// const options = CliHelpers.parseArgv([
-//     {
-//         name: "command",
-//         short: "c",
-//         type: "list,string",
-//         description: "Run a command",
-//         example: "test fuck you"
-//     },
-//     {
-//         name: "names",
-//         short: "n",
-//         type: "list,string",
-//         description: "List of names",
-//         example: "And fuck you too"
-//     }
-// ]);
-// console.log("options", options);
-// export { CliHelpers } from "./helpers/CliHelpers";
-var actions_1 = __webpack_require__(/*! ./actions */ "./src/actions/index.ts");
-exports.actions = actions_1.actions;
-
-
 /***/ })
 
 /******/ });
 });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=actions.js.map

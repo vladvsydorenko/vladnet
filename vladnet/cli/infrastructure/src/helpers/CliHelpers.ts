@@ -2,7 +2,7 @@ import * as argvParser from "argv";
 
 export namespace CliHelpers {
 
-    export interface IParseArgvOption {
+    export interface IArgvOption {
         name: string;
         type: string;
         short?: string;
@@ -10,9 +10,9 @@ export namespace CliHelpers {
         example?: string;
     }
 
-    export const parseArgv = (options: IParseArgvOption[], argv = process.argv) => {
+    export const parseArgv = (options: IArgvOption[], argv = process.argv) => {
         argvParser.option(options);
-        const result = argvParser.run(argv);
+        return argvParser.run(argv).options;
     };
 
 }
