@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import * as argvParser from "argv";
-import { ICLIConfig } from "../ICLIConfig";
+import { ICLIConfig } from "./ICLIConfig";
 import { loadActions } from "./helpers";
 
 const configPath = path.join(process.cwd(), "vladnet.json");

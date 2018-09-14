@@ -4,7 +4,7 @@ module.exports = {
     entry: {
         index: "./src",
         actions: "./src/actions",
-        bin_vladnet: "./src/bin/vladnet"
+        bin_vladnet: "./src/bin/bin_vladnet"
     },
     mode: "development",
     devtool: "source-map",

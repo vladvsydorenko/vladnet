@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import * as path from "path";
-import { ICLIConfig } from "../ICLIConfig";
-import nativeRequire from "../../helpers/nativeRequire";
-import { ICliAction } from "../../actions/ICLIAction";
+import { ICLIConfig } from "./ICLIConfig";
+import nativeRequire from "../nativeRequire";
+import { ICliAction } from "../actions/ICLIAction";
 
 export const normalizeActionPaths = (paths: string[]) => {
     return paths.map(value => {

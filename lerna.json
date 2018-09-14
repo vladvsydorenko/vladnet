@@ -1,7 +1,8 @@
 {
     "packages": [
-      "vladnet/common/*",
-      "vladnet/IPD/*"
+      "vladnet/cli/*",
+      "vladnet/com/*",
+      "vladnet/ipc/*"
     ],
     "version": "1.0.0-a",
     "npmClient": "yarn"

@@ -1,7 +1,8 @@
 {
-  "name": "@vladnet/cli-infrastructure",
+  "name": "@vladnet/cli-vladnet",
   "version": "1.0.0-a",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "private": true,
   "scripts": {

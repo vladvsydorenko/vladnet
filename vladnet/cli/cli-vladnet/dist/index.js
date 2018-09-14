@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/actions/index.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -106,7 +106,7 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var init_1 = __webpack_require__(/*! ./init */ "./src/actions/init.ts");
+var init_1 = __webpack_require__(/*! ./init */ "./src/actions/init/index.ts");
 exports.actions = {
     init: init_1.default,
 };
@@ -114,16 +114,19 @@ exports.actions = {
 
 /***/ }),
 
-/***/ "./src/actions/init.ts":
-/*!*****************************!*\
-  !*** ./src/actions/init.ts ***!
-  \*****************************/
+/***/ "./src/actions/init/index.ts":
+/*!***********************************!*\
+  !*** ./src/actions/init/index.ts ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var fs = __webpack_require__(/*! fs */ "fs");
+var path = __webpack_require__(/*! path */ "path");
+var DEFAULT_ACTION_PKG = "@vladnet/cli-infrastructure";
 exports.default = {
     options: [
         {
@@ -136,12 +139,76 @@ exports.default = {
     ],
     run: function (options) {
         console.log("So, start init action :)", options.name);
+        var configPath = path.join(process.cwd(), "vladnet.json");
+        var config;
+        if (!fs.existsSync(configPath)) {
+            config = { actions: [DEFAULT_ACTION_PKG] };
+            fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
+        }
+        console.log("config", config);
     },
 };
 
+
+/***/ }),
+
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// import { CliHelpers } from "./helpers/CliHelpers";
+Object.defineProperty(exports, "__esModule", { value: true });
+// const options = CliHelpers.parseArgv([
+//     {
+//         name: "command",
+//         short: "c",
+//         type: "list,string",
+//         description: "Run a command",
+//         example: "test fuck you"
+//     },
+//     {
+//         name: "names",
+//         short: "n",
+//         type: "list,string",
+//         description: "List of names",
+//         example: "And fuck you too"
+//     }
+// ]);
+// console.log("options", options);
+// export { CliHelpers } from "./helpers/CliHelpers";
+var actions_1 = __webpack_require__(/*! ./actions */ "./src/actions/index.ts");
+exports.actions = actions_1.actions;
+
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
 
 /***/ })
 
 /******/ });
 });
-//# sourceMappingURL=actions.js.map
+//# sourceMappingURL=index.js.map

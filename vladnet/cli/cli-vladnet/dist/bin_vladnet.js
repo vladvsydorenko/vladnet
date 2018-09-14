@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/bin/vladnet/index.ts");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/bin/bin_vladnet.ts");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -584,10 +584,41 @@ module.exports = self = {
 
 /***/ }),
 
-/***/ "./src/bin/vladnet/helpers.ts":
-/*!************************************!*\
-  !*** ./src/bin/vladnet/helpers.ts ***!
-  \************************************/
+/***/ "./src/bin/bin_vladnet.ts":
+/*!********************************!*\
+  !*** ./src/bin/bin_vladnet.ts ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var fs = __webpack_require__(/*! fs */ "fs");
+var path = __webpack_require__(/*! path */ "path");
+var argvParser = __webpack_require__(/*! argv */ "./node_modules/argv/index.js");
+var helpers_1 = __webpack_require__(/*! ./helpers */ "./src/bin/helpers.ts");
+var configPath = path.join(process.cwd(), "vladnet.json");
+try {
+    var config = JSON.parse(fs.readFileSync(configPath).toString());
+    var actions = helpers_1.loadActions(config);
+    var command = process.argv[2];
+    var action = actions[command];
+    argvParser.option(action.options);
+    var result = argvParser.run(process.argv.slice(3));
+    action.run(result.options);
+}
+catch (err) {
+    console.error("Error reading config by path \"" + configPath + "\"", err.stack);
+}
+
+
+/***/ }),
+
+/***/ "./src/bin/helpers.ts":
+/*!****************************!*\
+  !*** ./src/bin/helpers.ts ***!
+  \****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -595,7 +626,7 @@ module.exports = self = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var path = __webpack_require__(/*! path */ "path");
-var nativeRequire_1 = __webpack_require__(/*! ../../helpers/nativeRequire */ "./src/helpers/nativeRequire.ts");
+var nativeRequire_1 = __webpack_require__(/*! ../nativeRequire */ "./src/nativeRequire.ts");
 exports.normalizeActionPaths = function (paths) {
     return paths.map(function (value) {
         if (value.charAt(0) === ".")
@@ -620,41 +651,10 @@ exports.loadActions = function (config) {
 
 /***/ }),
 
-/***/ "./src/bin/vladnet/index.ts":
-/*!**********************************!*\
-  !*** ./src/bin/vladnet/index.ts ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var fs = __webpack_require__(/*! fs */ "fs");
-var path = __webpack_require__(/*! path */ "path");
-var argvParser = __webpack_require__(/*! argv */ "./node_modules/argv/index.js");
-var helpers_1 = __webpack_require__(/*! ./helpers */ "./src/bin/vladnet/helpers.ts");
-var configPath = path.join(process.cwd(), "vladnet.json");
-try {
-    var config = JSON.parse(fs.readFileSync(configPath).toString());
-    var actions = helpers_1.loadActions(config);
-    var command = process.argv[2];
-    var action = actions[command];
-    argvParser.option(action.options);
-    var result = argvParser.run(process.argv.slice(3));
-    action.run(result.options);
-}
-catch (err) {
-    console.error("Error reading config by path \"" + configPath + "\"", err.stack);
-}
-
-
-/***/ }),
-
-/***/ "./src/helpers/nativeRequire.ts":
-/*!**************************************!*\
-  !*** ./src/helpers/nativeRequire.ts ***!
-  \**************************************/
+/***/ "./src/nativeRequire.ts":
+/*!******************************!*\
+  !*** ./src/nativeRequire.ts ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
