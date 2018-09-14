@@ -1,5 +1,5 @@
 import init from "./init";
-import { ICliAction } from "./ICLIAction";
+import { ICliAction } from "@vladnet/cli-vladnet";
 
 export const actions = {
     init,

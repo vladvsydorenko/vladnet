@@ -1,5 +1,5 @@
 {
-  "name": "@vladnet/cli-vladnet",
+  "name": "@vladnet/cli-actions",
   "version": "1.0.0-a",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,9 +12,6 @@
     "start:compile": "yarn run compile && yarn run start",
     "start:compile:watch": "concurrently -n \"compile,run\" \"yarn run compile:watch\" \"yarn start\""
   },
-  "bin": {
-    "vladnet": "./dist/vladnet.js"
-  },
   "devDependencies": {
     "@types/argv": "^0.0.4",
     "@types/node": "^10.9.4",
@@ -26,6 +23,6 @@
     "webpack-command": "^0.4.1"
   },
   "dependencies": {
-    "argv": "^0.0.2"
+    "@vladnet/cli-vladnet": "https://github.com/vladvsydorenko/vladnet-cli"
   }
 }

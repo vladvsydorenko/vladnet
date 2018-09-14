@@ -1,12 +1,11 @@
 import * as fs from "fs";
 import * as path from "path";
-import nativeRequire from "../../nativeRequire";
 
 export interface IInitOptions {
     name: string;
 }
 
-const DEFAULT_ACTION_PKG = "@vladnet/cli-infrastructure";
+const DEFAULT_ACTION_PKG = "@vladnet/cli-actions";
 
 export default {
     options: [

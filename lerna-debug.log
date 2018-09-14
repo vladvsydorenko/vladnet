@@ -1,0 +1,9 @@
+0 silly argv { _: [ 'add' ],
+0 silly argv   scope: '@vladnet/cli-actions',
+0 silly argv   globs: [],
+0 silly argv   lernaVersion: '3.3.2',
+0 silly argv   '$0': 'node_modules\\lerna\\cli.js',
+0 silly argv   pkg: 'git@github.com:vladvsydorenko/vladnet-cli.git' }
+1 notice cli v3.3.2
+2 verbose rootPath D:\js\vladnet
+3 error
